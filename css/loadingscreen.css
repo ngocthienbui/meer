@@ -1,0 +1,20 @@
+@media screen and (max-width: 479px) {
+  #loadingscreen {
+    background-image: url("../images/loading-screen-bg.jpg");
+    background-size: cover;
+  }
+  #loading-content {
+  	text-align: center;
+  }
+  #loading-content .loading-logo img{
+  	margin-top: 100px;
+  	width: 200px;
+  }
+  #loading-content .loading-text img{
+  	margin-top: 300px;
+  	width: 300px;
+  }
+  .test {
+    background-color: red;
+  }
+}

@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<!-- 	<meta http-equiv="refresh" content="3;url=test.html" /> -->
+	<meta charset="UTF-8">
+	<title>loading screen</title>
+
+	<link rel="stylesheet" href="css/loadingscreen.css">
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body id="loadingscreen">
+
+	 <div id="loading-content">
+	    <span class="fadeIn loading-logo" data-src="images/logo.png"></span>
+	    <span class="fadeIn loading-text" data-src="images/loading-text.png"></span>
+	</div>
+
+	<script>
+	$(".fadeIn").each(function() {
+	    var src = $(this).data("src");
+	    if (src) {
+	        var img = new Image();
+	        img.style.display = "none";
+	        img.onload = function() {
+	            $(this).fadeIn(2000);
+	        };
+	        $(this).append(img);            
+	        img.src = src;
+	    }
+	});
+
+	//Using setTimeout to execute a function after 5 seconds.
+	setTimeout(function () {
+	   //Redirect with JavaScript
+	   $("body").fadeOut(1000,function(){
+		   window.location.href= 'intro.html';
+		 })
+	}, 3000);
+	</script>
+</body>
+</html>

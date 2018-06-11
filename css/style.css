@@ -1,0 +1,316 @@
+body {
+	background-color: #f1f1f1;
+}
+/* Nav Bar */
+header {
+    height: 35px;
+}
+.navbar {
+	background-color: #333333;
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	padding: 10px 20px;
+}
+.navbar-brand img {
+    width: 80%;
+}
+.navbar-light .nav-thema {
+    color: #ffffff;
+    margin-left: 28%;
+}
+.navbar-light .nav-product {
+	color: #ffffff;
+	text-align: center;
+	margin: 0;
+	}
+.navbar-light .navbar-toggler {
+	border-color: transparent;
+	padding: 0;
+}		
+.nav-link {
+	color: #ffffff !important;
+}
+.navbar button:focus {
+    outline: 1px dotted;
+    outline: 0;
+}
+/* Thema */
+.box {
+	margin: 0 20px;
+}
+
+.box-content {
+    height: 240px;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.box-title {
+	position: absolute;
+	bottom: 0;
+	background-color: #ffcf00;
+	width: 100%;
+}
+.box-image img{
+	width: 100%;
+}
+
+/* Product page */
+.box2 {
+	margin: 0 20px;
+}
+
+.box2-content {
+	height: 160px;
+	margin: 20px 0 0 0;	
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.box2-title {
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	padding: 64px;
+	text-align: center;
+}
+.box2-image img{
+	width: 100%;
+}
+
+/* Categorie */
+.box3-content {
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.box3-image {
+    border: 1px solid #e6e6e6;
+}
+.box3-image img{
+    width: 100%;
+}
+
+/*bootstrap */
+
+.col-sm {
+	padding: 0;
+}
+
+.title-thema{
+	padding: 10px;
+	font-size: 28px;
+}
+.title-product-page{
+	margin: 0;
+	font-size: 28px;
+	color: white;
+}
+a {
+	color: #000000;
+}
+a:hover {
+		color: #0056b3;
+}
+
+i.fa {
+    font-size: 30px;
+    color: #ffcf00;
+}
+i.fas {
+    color: #ffcf00;
+}
+
+/* Media Queries */
+@media (min-width: 768px){}
+	.container {
+		max-width: 100% !important;
+		padding: 20px 0 !important;
+    background-color: #f1f1f1;
+	}
+
+	/* algemeen */
+
+	html, body {
+		overflow-x: hidden;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	body {
+		position: relative;
+		margin: 0;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	p, h2, h3 {
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+
+	/* achtergrond plaatje --> komt te vervallen */
+
+	#fillerIMG {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	/* onboarding */
+
+	.onboardingContainer {
+		position: absolute;
+		top: 0;
+		left: 0vw;
+		width: 300vw;
+		height: 100%;
+		z-index: 5;
+	}
+
+	#backgroundOB {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		opacity: 0.7;
+	}
+
+	.contentContOB {
+		position: absolute;
+		top: 15vh;
+		width: 92vw;
+		border-radius: 10vw;
+		border-style: solid;
+		border-color: #FFCF01;
+		background-color: white;
+		padding: 4vh 10vw 4vh 10vw;
+		text-align: center;
+	}
+
+	#contentContOB1 {
+		left: 4vw;
+	}
+
+	#contentContOB2 {
+		left: 104vw;
+	}
+
+	#contentContOB3 {
+		left: 204vw;
+	}
+
+	#welkomOB {
+		font-size: 5vw;
+		margin-bottom: 5vw;
+	}
+
+	.contentOB {
+		font-size: 5vw;
+	}
+
+	.contentImgOB {
+		width: 60vw;
+		margin: 0 5vw 0 5vw;
+	}
+
+	.progressionOB {
+		width: 70vw;
+		padding: 5vh 25vw 0 25vw;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.progressionOBbig{
+		background-color: black;
+		display: block;
+		opacity: 0.7;
+		width: 16px;
+		height: 16px;
+		border-radius: 8px;		
+	}
+
+	.progressionOBsmall{
+		background-color: black;
+		opacity: 0.5;
+		width: 10px;
+		height: 10px;
+		border-radius: 5px;	
+	}
+
+	.kopOB {
+		margin-top: 0;
+	}
+
+		/* product pagina voor 1 specifiek product */
+	#single-product-img {
+		width: 100vw;
+	}
+	
+	#single-product-naam {
+		margin: 1vh 0 0 5vw;
+		font-size: 8vw;
+		display: inline-block;
+		float: bottom;
+	}
+	
+	#single-product-prijs {
+		font-size: 7vw;
+		margin: 1vh 0 2vh 5vw;
+	}
+	/* knoppen */
+	#single-product-buttonCont {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.single-product-button {
+		width: 28vw;
+		height: 3.5vh;
+		border-radius: 20px;
+		border-style: solid;
+		border-color: #d7d7d7;
+		border-width: 1px;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 18px;
+		text-align: center;
+		padding: 1vh 0 1vh 0;
+		margin: 0 1vw 0 1vw;
+	}
+	
+	#single-product-btnWinkel {
+		background-color: #3bad27;
+		color: white;
+		border-color: #3bad27;
+	}
+	
+	#single-product-star {
+		height: 100%;
+		color: black;
+	}
+	/* tekst */
+	#single-product-tekstContainer {
+		width: 90vw;
+		margin: 0 5vw 0 5vw;
+	}
+	
+	.single-product-tekstKop {
+		margin-bottom: 0;
+	}
+	
+	.single-product-tekstInhoud {
+		margin-top: 0;
+	}
+}
+
+

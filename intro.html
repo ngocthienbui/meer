@@ -1,0 +1,532 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+	<title>Document</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome-all.min.css">
+	
+
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/script.js" type="text/javascript"></script>
+	
+</head>
+<body>
+	<div class='onboardingContainer' id="swipeBox" ontouchstart="touchStart(event,'swipeBox');" ontouchmove="touchMove(event);" ontouchend="touchEnd(event);" >
+
+			<!-- background -->
+			<div id='backgroundOB'></div>
+
+			<!-- content container -->
+
+			<!-- first -->
+
+			<div class='contentContOB' id='contentContOB1'>
+				<h2 class='kopOB'>Welkom</h2>
+
+				<img class='contentImgOB' src='images/icon1.png'>
+
+				<p class='contentOB'> 
+					Krijg tips om jouw kamer in te richten.
+				</p>
+
+				<div class='progressionOB'>
+					<div class='progressionOBbig'></div>
+
+					<div class='progressionOBsmall'></div>
+
+					<div class='progressionOBsmall'></div>
+				</div>
+			</div>
+
+			
+
+			<!-- second -->
+
+			<div class='contentContOB' id='contentContOB2'>
+				<h2 class='kopOB'>Thema's</h2>
+
+				<img class='contentImgOB' src='images/icon2.png'>
+
+				<p class='contentOB'> 
+					Kies een interessant thema om er meer over te leren.
+				</p>
+
+				<div class='progressionOB'>
+					<div class='progressionOBsmall'></div>
+
+					<div class='progressionOBbig'></div>
+
+					<div class='progressionOBsmall'></div>
+				</div>
+			</div>
+
+			
+
+			<!-- third -->
+
+			<div class='contentContOB' id='contentContOB3'>
+				<h2 class='kopOB'>Uitproberen</h2>
+
+				<img class='contentImgOB' src='images/icon3.png'>
+
+				<p class='contentOB'> 
+					Probeer een product uit in je eigen slaapkamer.
+				</p>
+
+				<div class='progressionOB'>
+					<div class='progressionOBsmall'></div>
+
+					<div class='progressionOBsmall'></div>
+
+					<div class='progressionOBbig'></div>
+				</div>
+			</div>
+		</div>
+	<header>
+		<!--Navbar-->
+		<nav class="navbar navbar-light light-blue lighten-4">
+
+		    <!-- Navbar brand -->
+		    <a class="navbar-brand nav-thema" href="#"><img src="images/logo2.png" alt=""></a>
+
+		    <!-- Collapse button -->
+		    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+		        aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fa fa-bars fa-1x"></i></span></button>
+
+		    <!-- Collapsible content -->
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+		        <!-- Links -->
+		        <ul class="navbar-nav mr-auto">
+		            <li class="nav-item active">
+		                <a class="nav-link" href="thema.html">Thema's <span class="sr-only">(current)</span></a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="#">Features</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="#">Uitleg van de app</a>
+		            </li>
+		        </ul>
+		        <!-- Links -->
+
+		    </div>
+		    <!-- Collapsible content -->
+
+		</nav>
+		<!--/.Navbar-->
+	</header>
+	<div class="container">
+		<div class="row box">
+			<a href="thema/ontspanning-product-page.html"class="col-sm box-content">
+					<div class="box-image">
+						<img src="images/ontspanning.png" alt="ontspanning">
+					</div>
+					<div class="box-title">
+						<h2 class="title-thema">Ontspanning</h2>
+					</div>
+			</a>
+		</div>
+
+		<div class="row box">
+			<a href="thema/liefde-product-page.html" class="col-sm box-content">
+					<div class="box-image">
+						<img src="images/ontspanning.png" alt="ontspanning">
+					</div>
+					<div class="box-title">
+						<h2 class="title-thema">Liefde</h2>
+					</div>
+			</a>
+		</div>
+
+		<div class="row box">
+			<a href="thema/productiviteit-product-page.html" class="col-sm box-content">
+					<div class="box-image">
+						<img src="images/ontspanning.png" alt="ontspanning">
+					</div>
+					<div class="box-title">
+						<h2 class="title-thema">Productiviteit</h2>
+					</div>
+			</a>
+		</div>
+
+		<div class="row box">
+			<a href="thema/groei-product-page.html" class="col-sm box-content">
+					<div class="box-image">
+						<img src="images/ontspanning.png" alt="ontspanning">
+					</div>
+					<div class="box-title">
+						<h2 class="title-thema">Groei</h2>
+					</div>
+			</a>
+	</div>
+	
+	<!-- script voor swipe functionaliteit -->
+
+		<script type="text/javascript">
+
+			// TOUCH-EVENTS SINGLE-FINGER SWIPE-SENSING JAVASCRIPT
+
+			// Courtesy of PADILICIOUS.COM and MACOSXAUTOMATION.COM
+
+			
+
+			// this script can be used with one or more page elements to perform actions based on them being swiped with a single finger
+
+
+
+			var triggerElementID = null; // this variable is used to identity the triggering element
+
+			var fingerCount = 0;
+
+			var startX = 0;
+
+			var startY = 0;
+
+			var curX = 0;
+
+			var curY = 0;
+
+			var deltaX = 0;
+
+			var deltaY = 0;
+
+			var horzDiff = 0;
+
+			var vertDiff = 0;
+
+			var minLength = 72; // the shortest distance the user may swipe
+
+			var swipeLength = 0;
+
+			var swipeAngle = null;
+
+			var swipeDirection = null;
+
+			
+
+			// The 4 Touch Event Handlers
+
+			
+
+			// NOTE: the touchStart handler should also receive the ID of the triggering element
+
+			// make sure its ID is passed in the event call placed in the element declaration, like:
+
+			// <div id="picture-frame" ontouchstart="touchStart(event,'picture-frame');"  ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+
+
+
+			function touchStart(event,passedName) {
+
+				// disable the standard ability to select the touched object
+
+				event.preventDefault();
+
+				// get the total number of fingers touching the screen
+
+				fingerCount = event.touches.length;
+
+				// since we're looking for a swipe (single finger) and not a gesture (multiple fingers),
+
+				// check that only one finger was used
+
+				if ( fingerCount == 1 ) {
+
+					// get the coordinates of the touch
+
+					startX = event.touches[0].pageX;
+
+					startY = event.touches[0].pageY;
+
+					// store the triggering element ID
+
+					triggerElementID = passedName;
+
+				} else {
+
+					// more than one finger touched so cancel
+
+					touchCancel(event);
+
+				}
+
+			}
+
+
+
+			function touchMove(event) {
+
+				console.log('move')
+
+				event.preventDefault();
+
+				if ( event.touches.length == 1 ) {
+
+					curX = event.touches[0].pageX;
+
+					curY = event.touches[0].pageY;
+
+				} else {
+
+					touchCancel(event);
+
+				}
+
+			}
+
+			
+
+			function touchEnd(event) {
+
+				console.log('end');
+
+				event.preventDefault();
+
+				// check to see if more than one finger was used and that there is an ending coordinate
+
+				if ( fingerCount == 1 && curX != 0 ) {
+
+					// use the Distance Formula to determine the length of the swipe
+
+					swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
+
+					// if the user swiped more than the minimum length, perform the appropriate action
+
+					if ( swipeLength >= minLength ) {
+
+						caluculateAngle();
+
+						determineSwipeDirection();
+
+						processingRoutine();
+
+						touchCancel(event); // reset the variables
+
+					} else {
+
+						touchCancel(event);
+
+					}	
+
+				} else {
+
+					touchCancel(event);
+
+				}
+
+			}
+
+
+
+			function touchCancel(event) {
+
+				// reset the variables back to default values
+
+				fingerCount = 0;
+
+				startX = 0;
+
+				startY = 0;
+
+				curX = 0;
+
+				curY = 0;
+
+				deltaX = 0;
+
+				deltaY = 0;
+
+				horzDiff = 0;
+
+				vertDiff = 0;
+
+				swipeLength = 0;
+
+				swipeAngle = null;
+
+				swipeDirection = null;
+
+				triggerElementID = null;
+
+			}
+
+			
+
+			function caluculateAngle() {
+
+				var X = startX-curX;
+
+				var Y = curY-startY;
+
+				var Z = Math.round(Math.sqrt(Math.pow(X,2)+Math.pow(Y,2))); //the distance - rounded - in pixels
+
+				var r = Math.atan2(Y,X); //angle in radians (Cartesian system)
+
+				swipeAngle = Math.round(r*180/Math.PI); //angle in degrees
+
+				if ( swipeAngle < 0 ) { swipeAngle =  360 - Math.abs(swipeAngle); }
+
+			}
+
+			
+
+			function determineSwipeDirection() {
+
+				if ( (swipeAngle <= 45) && (swipeAngle >= 0) ) {
+
+					swipeDirection = 'left';
+
+				} else if ( (swipeAngle <= 360) && (swipeAngle >= 315) ) {
+
+					swipeDirection = 'left';
+
+				} else if ( (swipeAngle >= 135) && (swipeAngle <= 225) ) {
+
+					swipeDirection = 'right';
+
+				} else if ( (swipeAngle > 45) && (swipeAngle < 135) ) {
+
+					swipeDirection = 'down';
+
+				} else {
+
+					swipeDirection = 'up';
+
+				}
+
+			}
+
+			
+
+			function processingRoutine() {
+
+				var swipedElement = document.getElementById(triggerElementID);
+
+				var position1 = 0;
+
+				var position2 = window.innerWidth * -1;
+
+				var position3 = window.innerWidth * -2;
+
+				var position4 = window.innerWidth * -3;
+
+				if ( swipeDirection == 'left' ) {
+
+					// zet nieuwe left waarde
+
+					var _left = swipedElement.offsetLeft;
+
+					if(_left == (position3)){
+
+						_left = position4;
+
+					} else if (_left <= position1) {
+
+						_left -= window.innerWidth;
+
+					}
+
+					// animeer nieuwe positie
+
+					var currentLeft = swipedElement.offsetLeft;
+
+					var newOpacity = 1;
+
+					if (currentLeft == position1 || currentLeft == position2 || currentLeft == position3){
+
+						var interval = setInterval(animaLeft, 20);
+
+					}					
+
+					function animaLeft(){
+
+						if (currentLeft == _left) {
+
+							clearInterval(interval);
+
+						} else if(_left == position4) {
+
+							currentLeft -= (window.innerWidth / 20); 
+
+							swipedElement.style.left = currentLeft + 'px';
+
+							newOpacity -= 0.05;
+
+							swipedElement.style.opacity = newOpacity;
+
+						} else {
+
+							currentLeft -= (window.innerWidth / 20); 
+
+							swipedElement.style.left = currentLeft + 'px';
+
+						}
+
+					}
+
+				} else if ( swipeDirection == 'right' ) {
+
+					// REPLACE WITH YOUR ROUTINES
+
+					var _left = swipedElement.offsetLeft;
+
+					if(_left == 0){
+
+					
+
+					} else if (_left <= window.innerWidth) {
+
+						_left += window.innerWidth;
+
+					}
+
+					var oldLeft = swipedElement.offsetLeft;
+
+					var interval = setInterval(animaLeft, 20);					
+
+					if (oldLeft == position2 || oldLeft == position3){
+
+						var interval = setInterval(animaLeft, 20);
+
+					}	
+
+					function animaLeft(){
+
+						if (oldLeft == _left) {
+
+							clearInterval(interval);
+
+						} else {
+
+							oldLeft += (window.innerWidth / 20); 
+
+							swipedElement.style.left = oldLeft + 'px';
+
+						}
+
+					}
+
+				} else if ( swipeDirection == 'up' ) {
+
+					// REPLACE WITH YOUR ROUTINES
+
+				} else if ( swipeDirection == 'down' ) {
+
+					// REPLACE WITH YOUR ROUTINES
+
+				}
+
+				console.log(swipedElement.offsetLeft);
+
+			}
+
+
+
+		</script>
+</body>
+</html>
