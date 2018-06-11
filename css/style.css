@@ -152,17 +152,7 @@ i.fas {
 		font-family: 'Source Sans Pro', sans-serif;
 	}
 
-	/* achtergrond plaatje --> komt te vervallen */
-
-	#fillerIMG {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-	}
-
+	
 	/* onboarding */
 
 	.onboardingContainer {
@@ -172,6 +162,7 @@ i.fas {
 		width: 300vw;
 		height: 100%;
 		z-index: 5;
+		opacity: 1;
 	}
 
 	#backgroundOB {
@@ -187,25 +178,25 @@ i.fas {
 	.contentContOB {
 		position: absolute;
 		top: 15vh;
-		width: 92vw;
+		width: 80vw;
 		border-radius: 10vw;
 		border-style: solid;
 		border-color: #FFCF01;
 		background-color: white;
-		padding: 4vh 10vw 4vh 10vw;
+		padding: 4vh 5vw 4vh 5vw;
 		text-align: center;
 	}
 
 	#contentContOB1 {
-		left: 4vw;
+		left: 10vw;
 	}
 
 	#contentContOB2 {
-		left: 104vw;
+		left: 110vw;
 	}
 
 	#contentContOB3 {
-		left: 204vw;
+		left: 210vw;
 	}
 
 	#welkomOB {
@@ -216,15 +207,39 @@ i.fas {
 	.contentOB {
 		font-size: 5vw;
 	}
-
-	.contentImgOB {
-		width: 60vw;
-		margin: 0 5vw 0 5vw;
+	
+	#closeOB {
+		position: fixed;
+		top: 7vh;
+		right: 10vw;
+		font-size: 8vh;
+		z-index: 10;
+	}
+	/*navigatie OB */
+	#navigationOB {
+		position: fixed;
+		top: 73vh;
+		left: 10vw;
+		width: 80vw;
+		font-size: 8vh;
+		display: flex;
+		justify-content: space-between;
+		z-index: 10;
+	}
+	
+	.empty {
+		width: 10px;
+		height: 10px;
 	}
 
+	.contentImgOB {
+		width: 20vh;
+		margin: 3vh 5vw 3vh 5vw;
+	}
+	
 	.progressionOB {
 		width: 70vw;
-		padding: 5vh 25vw 0 25vw;
+		padding: 1vh 25vw 0 25vw;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;

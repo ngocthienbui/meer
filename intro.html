@@ -15,18 +15,33 @@
 	
 </head>
 <body>
+	<!-- navigation OB -->
+			<div id='navigationOB'>
+				<i class='empty' id='navigationOBleft'></i>
+				<i class="fas fa-chevron-right" id='navigationOBright'></i>	
+
+				<div id="closeOB">
+					<i class="fas fa-times"></i>
+				</div>
+			</div>
+			
+			
+
+
+
 	<div class='onboardingContainer' id="swipeBox" ontouchstart="touchStart(event,'swipeBox');" ontouchmove="touchMove(event);" ontouchend="touchEnd(event);" >
 
 			<!-- background -->
 			<div id='backgroundOB'></div>
 
 			<!-- content container -->
-
+			
+			
+				
 			<!-- first -->
-
 			<div class='contentContOB' id='contentContOB1'>
 				<h2 class='kopOB'>Welkom</h2>
-
+				
 				<img class='contentImgOB' src='images/icon1.png'>
 
 				<p class='contentOB'> 
@@ -45,10 +60,9 @@
 			
 
 			<!-- second -->
-
 			<div class='contentContOB' id='contentContOB2'>
 				<h2 class='kopOB'>Thema's</h2>
-
+				
 				<img class='contentImgOB' src='images/icon2.png'>
 
 				<p class='contentOB'> 
@@ -61,16 +75,15 @@
 					<div class='progressionOBbig'></div>
 
 					<div class='progressionOBsmall'></div>
-				</div>
+				</div>				
 			</div>
 
 			
 
 			<!-- third -->
-
 			<div class='contentContOB' id='contentContOB3'>
 				<h2 class='kopOB'>Uitproberen</h2>
-
+				
 				<img class='contentImgOB' src='images/icon3.png'>
 
 				<p class='contentOB'> 
@@ -206,6 +219,22 @@
 			var swipeAngle = null;
 
 			var swipeDirection = null;
+			
+			var currentPosition = 1;
+			
+			var navigationOBleft = document.getElementById('navigationOBleft');
+			
+			var navigationOBright = document.getElementById('navigationOBright');
+			
+			var closeOB = document.getElementById('closeOB');
+			
+			var OB = document.getElementById('swipeBox');
+			
+			var navigationOB = document.getElementById('navigationOB');
+			
+			var check = 0;
+			
+			var interval = 0;
 
 			
 
@@ -418,7 +447,7 @@
 				if ( swipeDirection == 'left' ) {
 
 					// zet nieuwe left waarde
-
+					currentPosition++;
 					var _left = swipedElement.offsetLeft;
 
 					if(_left == (position3)){
@@ -438,19 +467,19 @@
 					var newOpacity = 1;
 
 					if (currentLeft == position1 || currentLeft == position2 || currentLeft == position3){
-
+						check = 0;
 						var interval = setInterval(animaLeft, 20);
 
 					}					
-
+					var check = 0;
 					function animaLeft(){
-
-						if (currentLeft == _left) {
+						
+						if (currentLeft == _left || check == 20) {
 
 							clearInterval(interval);
 
 						} else if(_left == position4) {
-
+							
 							currentLeft -= (window.innerWidth / 20); 
 
 							swipedElement.style.left = currentLeft + 'px';
@@ -458,21 +487,22 @@
 							newOpacity -= 0.05;
 
 							swipedElement.style.opacity = newOpacity;
+							navigationOB.style.opacity = newOpacity;
 
 						} else {
-
+							check++;
 							currentLeft -= (window.innerWidth / 20); 
 
 							swipedElement.style.left = currentLeft + 'px';
 
 						}
-
+						updateNavOB();
 					}
 
 				} else if ( swipeDirection == 'right' ) {
 
 					// REPLACE WITH YOUR ROUTINES
-
+					currentPosition--;
 					var _left = swipedElement.offsetLeft;
 
 					if(_left == 0){
@@ -487,22 +517,22 @@
 
 					var oldLeft = swipedElement.offsetLeft;
 
-					var interval = setInterval(animaLeft, 20);					
+					var interval = setInterval(animaRight, 20);					
 
 					if (oldLeft == position2 || oldLeft == position3){
-
-						var interval = setInterval(animaLeft, 20);
+						check = 0;
+						var interval = setInterval(animaRight, 20);
 
 					}	
+					
+					function animaRight(){
 
-					function animaLeft(){
-
-						if (oldLeft == _left) {
+						if (oldLeft == _left || check == 20) {
 
 							clearInterval(interval);
 
 						} else {
-
+							check++;
 							oldLeft += (window.innerWidth / 20); 
 
 							swipedElement.style.left = oldLeft + 'px';
@@ -510,7 +540,7 @@
 						}
 
 					}
-
+					updateNavOB();
 				} else if ( swipeDirection == 'up' ) {
 
 					// REPLACE WITH YOUR ROUTINES
@@ -524,7 +554,65 @@
 				console.log(swipedElement.offsetLeft);
 
 			}
-
+			
+			function updateNavOB(){
+				if (currentPosition == 1){
+					navigationOBleft.className = 'empty';
+					navigationOBright.className = 'fas fa-chevron-right';
+				} else if (currentPosition == 2){
+					navigationOBleft.className = 'fas fa-chevron-left';
+					navigationOBright.className = 'fas fa-chevron-right';
+				} else if (currentPosition == 3){
+					navigationOBleft.className = 'fas fa-chevron-left';
+					navigationOBright.className = 'fas fa-check';
+				}
+			}
+			
+			closeOB.onclick = function(){
+				OB.style.visibility = 'hidden';
+				navigationOB.style.visibility = 'hidden';
+			};
+			
+			navigationOBleft.onclick = function(){
+				if (currentPosition == 1){
+				
+				} else {
+					check = 0;
+					interval = setInterval(goLeft, 20);	
+					currentPosition--;
+					updateNavOB();
+				}
+			}
+			
+			navigationOBright.onclick = function(){
+				if (currentPosition == 3){
+					OB.style.visibility = 'hidden';
+					navigationOB.style.visibility = 'hidden';
+				} else {
+					check = 0;
+					interval = setInterval(goRight, 20);	
+					currentPosition++;
+					updateNavOB();
+				}
+			}
+			
+			function goLeft(){
+				if (check == 20){
+					clearInterval(interval);
+				} else {
+					check++;
+					OB.style.left = OB.offsetLeft + (window.innerWidth / 20);
+				}
+			}
+			
+			function goRight(){
+				if (check == 20){
+					clearInterval(interval);
+				} else {
+					check++;
+					OB.style.left = OB.offsetLeft - (window.innerWidth / 20);
+				}
+			}
 
 
 		</script>
