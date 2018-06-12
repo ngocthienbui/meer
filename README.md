@@ -6,4 +6,4 @@ Thien Bui<br>
 Amer Jaganjac<br>
 Damien Michiels
  
-# Test van Amer Jaganjac -> whoop whoop het werkt
+# Test van Amer Jaganjac -> whoop whoop het werkt ik ben zo blij!
